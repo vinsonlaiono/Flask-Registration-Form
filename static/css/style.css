@@ -1,0 +1,31 @@
+.wrapper{
+    min-height: 320px;
+    width: 354px;
+    background-color: #86bded;
+    border: 3px solid;
+    margin: auto;
+    border-radius: 5px;
+    padding-left: 58px;;
+}
+.button{
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(33, 159, 197);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px #999;
+}
+.button:hover {background-color: #1894b3}
+
+.button:active {
+  background-color: rgb(33, 159, 197);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
