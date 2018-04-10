@@ -13,7 +13,7 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
-                    <p style="color: red;">{{message}}</p>
+                    <strong style="color: red;">{{message}}</strong>
                     {% endfor %}
                 {% endif %}
             {% endwith %}
@@ -30,10 +30,13 @@
                         <td><label for="">Email: </label></td><td><input type="text" name="email"></td>
                     </tr>
                     <tr>
-                        <td><label for="">Password: </label></td><td><input type="text" name="password"></td>
+                        <td><label for="">Birthdate: </label></td><td><input type="date" name="bday"></td>
                     </tr>
                     <tr>
-                        <td><label for="">Confirm Password: </label></td><td><input type="text" name="confirm_password"></td>
+                        <td><label for="">Password: </label></td><td><input type="password" name="password"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Confirm Password: </label></td><td><input type="password" name="confirm_password"></td>
                     </tr>
                     <tr>
                         <td> 

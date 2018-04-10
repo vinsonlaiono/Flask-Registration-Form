@@ -5,7 +5,8 @@
     border: 3px solid;
     margin: auto;
     border-radius: 5px;
-    padding-left: 58px;;
+    padding-left: 58px;
+    padding-top: 20px;
 }
 .button{
     display: inline-block;
@@ -27,5 +28,8 @@
   background-color: rgb(33, 159, 197);
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+strong{
+    margin-top: 20px; 
 }
 
