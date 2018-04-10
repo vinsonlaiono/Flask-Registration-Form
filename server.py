@@ -2,11 +2,13 @@ from flask import Flask, render_template, request, redirect, flash, session
 app = Flask(__name__)
 app.secret_key = 'durantula'
 import re
-from datetime import datetime
-from time import time
+import datetime
+import time
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 @app.route('/')
 def index():
+    
+        
     return render_template('index.html')  
 
 @app.route('/results', methods=['POST'])
@@ -15,18 +17,12 @@ def process():
     last_name = request.form['last_name']
     email = request.form['email']
     bday = request.form['bday']
-    print(bday)
-    print(newBday)
-    today = datetime.now()
-    print(today)
-    t1 = datetime.datetime.now()
-    t2 = datetime.datetime.now()
-    t1>t2
-
-
-
     password = request.form['password']
     confirm_password = request.form['confirm_password']
+    timestamp = time.strftime('%Y%m%d')
+
+
+
 
     #--------------------FIRST NAME VALIDATION--------------------------------------------
     # CHECK IF FIRST NAME FIELD IS EMPTY
@@ -41,7 +37,7 @@ def process():
     #---------------------LAST NAME VALIDATION--------------------------------------------
     # CHECK IF LAST NAME FIELD IS EMPTY
     if len(last_name) < 1:
-        flash(f'last name Cannot be empty')
+        flash(f'Last name Cannot be empty')
         return redirect('/')
     # CHECK IF LAST CONTAINS A NUMBER
     def num_there(s):
@@ -55,6 +51,15 @@ def process():
         return redirect('/')
     elif not EMAIL_REGEX.match(request.form['email']):
         flash("Invalid Email Address!")
+        return redirect('/')
+    #---------------------BIRTHDAY VALIDATION---------------------------------------------
+    # CHECK IF BIRTHDAY IS VALID
+    print(timestamp)
+    if len(bday) < 1:
+        flash(f"Birthday cannot be empty")
+        return redirect('/')
+    if bday > timestamp:
+        flash(f"Please enter a valid Birthday")
         return redirect('/')
     #-----------------------PASSWORD VALIDATION--------------------------------------------
     #CHECK IF IS VALID AND MATCHING
